@@ -6,15 +6,13 @@
   "scripts": {},
   "author": "take4mats",
   "license": "ISC",
-  "devDependencies": {
-    "serverless-offline-python": "^3.22.0"
-  },
+  "devDependencies": {},
   "directories": {
     "test": "test"
   },
   "dependencies": {
-    "serverless-prune-plugin": "^1.3.0",
-    "serverless-plugin-stage-variables": "^1.7.10",
+    "serverless-plugin-stage-variables": "^1.9.2",
+    "serverless-prune-plugin": "^1.3.2",
     "serverless-python-requirements": "^4.3.0"
   }
 }
