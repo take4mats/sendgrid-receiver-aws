@@ -1,6 +1,6 @@
 {
   "name": "sendgrid-receiver-aws",
-  "version": "0.0.1",
+  "version": "1.0.0",
   "description": "sendgrid email receiver implementation to AWS",
   "main": "index.js",
   "scripts": {},
