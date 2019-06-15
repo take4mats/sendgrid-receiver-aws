@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <title>{{ email.subject }}</title>
+
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha256-916EbMg70RQy9LHiGkXzG8hSg9EdNy97GazNG/aiY1w=" crossorigin="anonymous">
+  <script src="http://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+</head>
+
+<body>
+  <div id="wrap">
+
+    <!-- content -->
+    <h2>Email detail</h2>
+    <dl class="dl-horizontal">
+      <dt>Subject: </dt>
+      <dd>{{ email.subject }}</dd>
+
+      <dt>Date Time: </dt>
+      <dd>Mon, 26 Mar 2018 19:34:16 +0000 (UTC)</dd>
+
+      <dt>From: </dt>
+      <dd>{{ email.from }}</dd>
+
+      <dt>To:	</dt>
+      <dd>{{ email.to }}</dd>
+
+      <dt>Body</dt>
+      <dd>
+        <div id="body" style="padding: 10px; margin: 10px; border: 10px dotted #aaa;">
+        {% if email.html %}
+{{ email.html }}
+        {% else %}
+          <pre>
+{{ email.text }}
+          </pre>
+        {% endif %}
+        </div>
+      </dd>
+    </dl>
+
+  </div>
+</body>
+</html>
