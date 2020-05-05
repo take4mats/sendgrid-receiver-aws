@@ -6,7 +6,9 @@
   "scripts": {},
   "author": "take4mats",
   "license": "ISC",
-  "devDependencies": {},
+  "devDependencies": {
+    "serverless-offline-python": "^3.22.2"
+  },
   "directories": {
     "test": "test"
   },
