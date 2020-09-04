@@ -16,7 +16,7 @@ provider:
         - s3:PutObject
       Resource: '*'
 plugins:
-  - serverless-offline-python
+  #  - serverless-offline-python
   - serverless-prune-plugin  # deletes old version of CloudFormation stack deployments
   - serverless-plugin-stage-variables  # for apigw logging
   - serverless-python-requirements  # allow pip
