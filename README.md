@@ -22,7 +22,7 @@ A serverless email receiver with below components:
     pip install -r requirements.txt
     cp .env_sample .env
     vim .env
-    npx sls --stage <stagename> deploy
+    npx sls deploy --stage <stagename>
     ```
 
 \# 2021/08/14 NOTE for SLS CLI command: stage variable や env var の sls v3 での扱い方 (variable resolver の挙動) については議論が様々進行中のようで、この方法が安定して将来も使える方法とは限らない。 issue [Environment variable in serverless\.yml throws "Cannot resolve \.\.\." error · Issue \#9813 · serverless/serverless](https://github.com/serverless/serverless/issues/9813) の行方を watch する必要あり。
