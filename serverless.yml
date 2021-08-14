@@ -9,7 +9,7 @@ provider:
 
   profile: ${env:SLS_PROF}
   region: ${env:SLS_REGION}
-  stage: ${env:SLS_STAGE}
+  stage: ${opt:stage}
   logRetentionInDays: 7 # CloudWatchLog
   iamRoleStatements:
     - Effect: Allow
@@ -76,4 +76,8 @@ package:
 # Starting with v3.0.0, Serverless will throw on configuration errors by default.
 # More Info: https://www.serverless.com/framework/docs/deprecations/#CONFIG_VALIDATION_MODE_DEFAULT
 configValidationMode: error
-useDotenv: true # just to deprecation ignore warning
+# just to deprecation ignore warning
+useDotenv: true
+# Starting with next major release, this will be communicated with a thrown error. Set "variablesResolutionMode: 20210326" in your service config, to adapt to this behavior now
+# More Info: https://www.serverless.com/framework/docs/deprecations/#NEW_VARIABLES_RESOLVER
+variablesResolutionMode: 20210326
