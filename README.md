@@ -22,7 +22,7 @@ A serverless email receiver with below components:
     pip install -r requirements.txt
     cp .env_sample .env
     vim .env
-    sls deploy --profile yourprofile --region regionname --stage stagename -v
+    SLS_PROF=<yourprofile> SLS_REGION=<regionname> SLS_STAGE=<stagename> npx sls deploy
     ```
 
 ## some more reference
