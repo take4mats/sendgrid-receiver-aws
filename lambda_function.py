@@ -1,15 +1,20 @@
 import os
 import json
-from jinja2 import Environment, FileSystemLoader
 import boto3
-from datetime import datetime, timedelta
 import requests
 import io
+import re
 from cgi import FieldStorage
+from jinja2 import Environment, FileSystemLoader
+from datetime import datetime, timedelta
 
 BUCKET_NAME = os.environ.get("BUCKET_NAME")
 WEBHOOK_URL = os.environ.get("WEBHOOK_URL")
 BASEPATH = os.environ.get("BASEPATH")
+
+BLACKLIST = [
+    r'^.*\.ru$',
+]
 
 
 def lambda_handler(event, context):
@@ -20,6 +25,13 @@ def lambda_handler(event, context):
     print(json.dumps(event))
 
     email = parse_multipart_form(event['headers'], event['body'])
+
+    if match_blacklist(email['from']) is True:
+        return {
+            'statusCode': 403,
+            'body': json.dumps('Filtered as spam!')
+        }
+
     html_text = create_html(email)
     s3_filepath = upload_to_s3(html_text)
     slack_notifier(email, s3_filepath)
@@ -28,6 +40,17 @@ def lambda_handler(event, context):
         'statusCode': 201,
         'body': json.dumps('Success!')
     }
+
+
+def match_blacklist(frmmail):
+    flag = False
+
+    for banned in BLACKLIST:
+        pattern = re.compile(banned)
+        if pattern.match(frmmail) is not None:
+            flag = True
+
+    return flag
 
 
 def parse_multipart_form(headers, body):
