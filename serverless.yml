@@ -2,11 +2,15 @@ service: sendgrid-receiver
 
 provider:
   name: aws
-  runtime: python3.6
-  profile: ${opt:profile}  # read from CLI option --profile
-  region: ${opt:region}  # read from CLI option region
-  stage: ${opt:stage}  # read from CLI option --stage
-  logRetentionInDays: 7  # CloudWatchLog
+  runtime: python3.8
+  # Resolution of lambda version hashes was improved with better algorithm, which will be used in v3.0.0.
+  # More Info: https://www.serverless.com/framework/docs/deprecations/#LAMBDA_HASHING_VERSION_V2
+  lambdaHashingVersion: 20201221
+
+  profile: ${env:SLS_PROF}
+  region: ${env:SLS_REGION}
+  stage: ${env:SLS_STAGE}
+  logRetentionInDays: 7 # CloudWatchLog
   iamRoleStatements:
     - Effect: Allow
       Action:
@@ -17,12 +21,12 @@ provider:
       Resource: '*'
 plugins:
   #  - serverless-offline-python
-  - serverless-prune-plugin  # deletes old version of CloudFormation stack deployments
-  - serverless-plugin-stage-variables  # for apigw logging
-  - serverless-python-requirements  # allow pip
+  - serverless-prune-plugin # deletes old version of CloudFormation stack deployments
+  - serverless-plugin-stage-variables # for apigw logging
+  - serverless-python-requirements # allow pip
 
 custom:
-  prune:  # retain 3 generations of CloudFormation stack configs in S3 buckets
+  prune: # retain 3 generations of CloudFormation stack configs in S3 buckets
     atuomatic: true
     number: 3
   pythonRequirements:
@@ -31,37 +35,45 @@ custom:
 resources:
   Description: ${self:provider.stage} CloudFormation stack
   Resources:
-    ApiGatewayRestApi:  # setting name and description of APIGW
+    ApiGatewayRestApi: # setting name and description of APIGW
       Type: AWS::ApiGateway::RestApi
       Properties:
         Name: sendgrid-receiver-api
         Description: SendGrid receiver API (Lambda-proxy integration)
-    ApiGatewayStage:  # for apigw logging
+    ApiGatewayStage: # for apigw logging
       Type: AWS::ApiGateway::stage
       Properties:
         MethodSettings:
           - DataTraceEnabled: true
-            HttpMethod: "*"
+            HttpMethod: '*'
             LoggingLevel: INFO
-            ResourcePath: "/*"
+            ResourcePath: '/*'
             MetricsEnabled: true
 
-functions:  # Lambda configuration
+functions: # Lambda configuration
   'sendgrid-receiver':
     handler: lambda_function.lambda_handler
     name: sendgrid-receiver-function-${self:provider.stage}
     description: ${self:provider.stage} Lambda function
-    events:  # define resources one by one to save Lambda from consumption
+    events: # define resources one by one to save Lambda from consumption
       - http:
           path: /receive
           method: post
           cors: false
+    environment:
+      BUCKET_NAME: ${env:BUCKET_NAME}
+      WEBHOOK_URL: ${env:WEBHOOK_URL}
+      BASEPATH: ${env:BASEPATH}
 
-package:  # exclude dev files first, and then include necessary files
-  exclude:
-    - '**'
-  include:
+package:
+  patterns:
+    - '!**'
     - 'lambda_function.py'
     - 'template_email_html.j2'
     - 'requirements.txt'
     - '.env'
+
+# Starting with v3.0.0, Serverless will throw on configuration errors by default.
+# More Info: https://www.serverless.com/framework/docs/deprecations/#CONFIG_VALIDATION_MODE_DEFAULT
+configValidationMode: error
+useDotenv: true # just to deprecation ignore warning

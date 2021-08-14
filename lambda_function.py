@@ -1,6 +1,4 @@
 import os
-from os.path import join, dirname
-from dotenv import load_dotenv
 import json
 from jinja2 import Environment, FileSystemLoader
 import boto3
@@ -8,9 +6,6 @@ from datetime import datetime, timedelta
 import requests
 import io
 from cgi import FieldStorage
-
-dotenv_path = join(dirname(__file__), '.env')
-load_dotenv(dotenv_path)
 
 BUCKET_NAME = os.environ.get("BUCKET_NAME")
 WEBHOOK_URL = os.environ.get("WEBHOOK_URL")
