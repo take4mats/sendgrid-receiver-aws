@@ -7,6 +7,8 @@ import lambda_function
 context = {}
 
 # object 'event' is also common obj, but needs to be initialized each time
+
+
 @pytest.fixture(scope='function', autouse=True)
 def event_init():
     dir = os.path.dirname(__file__)
@@ -34,6 +36,19 @@ def test_multipartがちゃんと読めること(event_init):
     dir = os.path.dirname(__file__)
     with open(dir + '/../tmp/email.html', 'w') as _out_file:
         _out_file.write(html_text)
+
+
+def test_送信元アドレスがblacklistをパスすること(event_init):
+    email = lambda_function.parse_multipart_form(
+        event_init['headers'],
+        event_init['body']
+    )
+    assert lambda_function.match_blacklist(email['from']) is False
+
+
+def test_送信元アドレスがblacklistにヒットすること(event_init):
+    spammer = 'Aleksandr <info@s6.ajgno.ru>'
+    assert lambda_function.match_blacklist(spammer)
 
 
 # def test_Lambda関数の全体処理が正常に完了すること(event_init):

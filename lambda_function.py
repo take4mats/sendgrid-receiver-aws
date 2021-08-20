@@ -13,7 +13,7 @@ WEBHOOK_URL = os.environ.get("WEBHOOK_URL")
 BASEPATH = os.environ.get("BASEPATH")
 
 BLACKLIST = [
-    r'^.*\.ru$',
+    r'^.*\.ru>$',
 ]
 
 
