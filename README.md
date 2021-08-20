@@ -1,5 +1,6 @@
 # sendgrid-receiver-aws
 A serverless email receiver with below components:
+
 - SendGrid Incoming Webhook
 - Amazon API Gatewawy
 - AWS Lambda
@@ -7,7 +8,7 @@ A serverless email receiver with below components:
 - Amazon CloudFront
 
 ## how to use
-1. set up incoming webhook with
+1. set up SendGrid Incoming Webhook with
     - your email domain
     - generated API-Gateway endpoint
 
@@ -15,7 +16,9 @@ A serverless email receiver with below components:
     - create S3 bucket
     - create CloudFront distribution with S3 bucket static web hosting
 
-3. set up serverless components
+3. *Docker* is required on your local machine before executing `sls deploy`.  This is because you need to bundle required pip module by using docker environment.
+
+4. set up serverless components
     ```sh
     npm install -g serverless
     npm install
