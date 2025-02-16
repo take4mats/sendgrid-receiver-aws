@@ -127,9 +127,9 @@ def slack_notifier(email, s3_filepath):
     message_url = BASEPATH + '/' + s3_filepath
 
     # time the email has been sent
-    _t1 = email['headers'].split('\n')
-    _t2 = _t1[0].split(', ')
-    time = _t2[1]
+    # _t1 = email['headers'].split('\n')
+    # _t2 = _t1[0].split(', ')
+    # time = _t2[1]
 
     # email body
     body = ''
@@ -145,11 +145,11 @@ def slack_notifier(email, s3_filepath):
             {
                 "title": "{subject}".format(subject=email['subject']),
                 "fields": [
-                    {
-                        "title": "Time",
-                        "value": time,
-                        "short": True
-                    },
+                    # {
+                    #     "title": "Time",
+                    #     "value": time,
+                    #     "short": True
+                    # },
                     {
                         "title": "From",
                         "value": email['from'],
