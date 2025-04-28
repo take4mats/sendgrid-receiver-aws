@@ -1,2 +1,5 @@
 requests
 jinja2
+pytest
+pytest-cov
+boto3

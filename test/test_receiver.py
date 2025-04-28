@@ -2,6 +2,7 @@ import pytest
 import json
 import os
 import lambda_function
+import tempfile
 
 # common constant objects
 context = {}
@@ -12,7 +13,7 @@ context = {}
 @pytest.fixture(scope='function', autouse=True)
 def event_init():
     dir = os.path.dirname(__file__)
-    f = open(dir + '/../tmp/sample_event.json', 'r')
+    f = open(dir + '/data/sample_event.json', 'r')
     event = json.load(f)
     yield event
 
@@ -33,9 +34,15 @@ def test_multipartがちゃんと読めること(event_init):
 
     # write out to html file
     html_text = lambda_function.create_html(email)
-    dir = os.path.dirname(__file__)
-    with open(dir + '/../tmp/email.html', 'w') as _out_file:
-        _out_file.write(html_text)
+    with tempfile.NamedTemporaryFile(suffix=".html", delete=True, mode="w", encoding="utf-8") as tmp_file:
+        tmp_file.write(html_text)
+        tmp_file.flush()
+
+        # ファイルパスを取得
+        file_path = tmp_file.name
+
+        # ファイルパスを使用して、テストを実行
+        assert os.path.exists(file_path)
 
 
 def test_送信元アドレスがblacklistをパスすること(event_init):
