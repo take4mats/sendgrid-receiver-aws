@@ -1,0 +1,114 @@
+{
+    "resource": "/receive",
+    "path": "/receive",
+    "httpMethod": "POST",
+    "headers": {
+        "Accept-Encoding": "gzip",
+        "CloudFront-Forwarded-Proto": "https",
+        "CloudFront-Is-Desktop-Viewer": "true",
+        "CloudFront-Is-Mobile-Viewer": "false",
+        "CloudFront-Is-SmartTV-Viewer": "false",
+        "CloudFront-Is-Tablet-Viewer": "false",
+        "CloudFront-Viewer-ASN": "11377",
+        "CloudFront-Viewer-Country": "US",
+        "Content-Type": "multipart/form-data; boundary=xYzZY",
+        "Host": "rjfbwnvz20.execute-api.ap-northeast-1.amazonaws.com",
+        "User-Agent": "Sendlib/1.0",
+        "Via": "1.1 936f33bed45438343f0ef2adff442814.cloudfront.net (CloudFront)",
+        "X-Amz-Cf-Id": "VHGtLwdwtBUZpOooP1yuByUVksV52kxX1p5p2wqfIsSafYKX0vyzcA==",
+        "X-Amzn-Trace-Id": "Root=1-6806e4be-1f21345478319b14276fed2a",
+        "X-Forwarded-For": "167.89.119.78, 70.132.33.75",
+        "X-Forwarded-Port": "443",
+        "X-Forwarded-Proto": "https"
+    },
+    "multiValueHeaders": {
+        "Accept-Encoding": [
+            "gzip"
+        ],
+        "CloudFront-Forwarded-Proto": [
+            "https"
+        ],
+        "CloudFront-Is-Desktop-Viewer": [
+            "true"
+        ],
+        "CloudFront-Is-Mobile-Viewer": [
+            "false"
+        ],
+        "CloudFront-Is-SmartTV-Viewer": [
+            "false"
+        ],
+        "CloudFront-Is-Tablet-Viewer": [
+            "false"
+        ],
+        "CloudFront-Viewer-ASN": [
+            "11377"
+        ],
+        "CloudFront-Viewer-Country": [
+            "US"
+        ],
+        "Content-Type": [
+            "multipart/form-data; boundary=xYzZY"
+        ],
+        "Host": [
+            "rjfbwnvz20.execute-api.ap-northeast-1.amazonaws.com"
+        ],
+        "User-Agent": [
+            "Sendlib/1.0"
+        ],
+        "Via": [
+            "1.1 936f33bed45438343f0ef2adff442814.cloudfront.net (CloudFront)"
+        ],
+        "X-Amz-Cf-Id": [
+            "VHGtLwdwtBUZpOooP1yuByUVksV52kxX1p5p2wqfIsSafYKX0vyzcA=="
+        ],
+        "X-Amzn-Trace-Id": [
+            "Root=1-6806e4be-1f21345478319b14276fed2a"
+        ],
+        "X-Forwarded-For": [
+            "167.89.119.78, 70.132.33.75"
+        ],
+        "X-Forwarded-Port": [
+            "443"
+        ],
+        "X-Forwarded-Proto": [
+            "https"
+        ]
+    },
+    "queryStringParameters": null,
+    "multiValueQueryStringParameters": null,
+    "pathParameters": null,
+    "stageVariables": null,
+    "requestContext": {
+        "resourceId": "mtuo26",
+        "resourcePath": "/receive",
+        "httpMethod": "POST",
+        "extendedRequestId": "JZit0HxhtjMEA_A=",
+        "requestTime": "22/Apr/2025:00:37:18 +0000",
+        "path": "/prod/receive",
+        "accountId": "722967549287",
+        "protocol": "HTTP/1.1",
+        "stage": "prod",
+        "domainPrefix": "rjfbwnvz20",
+        "requestTimeEpoch": 1745282238496,
+        "requestId": "02a049f5-17f1-409d-8577-8f9d643e8b08",
+        "identity": {
+            "cognitoIdentityPoolId": null,
+            "accountId": null,
+            "cognitoIdentityId": null,
+            "caller": null,
+            "sourceIp": "167.89.119.78",
+            "principalOrgId": null,
+            "accessKey": null,
+            "cognitoAuthenticationType": null,
+            "cognitoAuthenticationProvider": null,
+            "userArn": null,
+            "userAgent": "Sendlib/1.0",
+            "user": null
+        },
+        "domainName": "rjfbwnvz20.execute-api.ap-northeast-1.amazonaws.com",
+        "deploymentId": "1hnkyy",
+        "apiId": "rjfbwnvz20"
+    },
+    "body": "--xYzZY\r\nContent-Disposition: form-data; name=\"to\"\r\n\r\nTakeshi George Matsuda <fb@example.com>\r\n--xYzZY\r\nContent-Disposition: form-data; name=\"from\"\r\n\r\n\"Facebook\" <security@facebookmail.com>\r\n--xYzZY\r\nContent-Disposition: form-data; name=\"text\"\r\n\r\n========================================\r\n私ではありません\r\n========================================\r\n\r\nセキュリティ警告: 新しいデバイスからのログイン\r\n\r\nFacebookセキュリティ\r\n\r\n========================================\r\n\r\n\r\n--xYzZY\r\nContent-Disposition: form-data; name=\"html\"\r\n\r\n<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.01 Transitional //EN\"><html><head><title>Facebook</title><meta http-equiv=\"Content-Type\" content=\"text/html; charset=utf-8\" /><style nonce=\"BSUcyn0d\">@media all and (max-width: 480px){*[class].ib_t{min-width:100% !important}*[class].ib_row{display:block !important}*[class].ib_ext{display:block !important;padding:10px 0 5px 0;vertical-align:top !important;width:100% !important}*[class].ib_img,*[class].ib_mid{vertical-align:top !important}*[class].mb_blk{display:block !important;padding-bottom:10px;width:100% !important}*[class].mb_hide{display:none !important}*[class].mb_inl{display:inline !important}*[class].d_mb_flex{display:block !important}}.d_mb_show{display:none}.d_mb_flex{display:flex}@media only screen and (max-device-width: 480px){.d_mb_hide{display:none !important}.d_mb_show{display:block !important}.d_mb_flex{display:block !important}}.mb_text h1,.mb_text h2,.mb_text h3,.mb_text h4,.mb_text h5,.mb_text h6{line-height:normal}.mb_work_text h1{font-size:18px;line-height:normal;margin-top:4px}.mb_work_text h2,.mb_work_text h3{font-size:16px;line-height:normal;margin-top:4px}.mb_work_text h4,.mb_work_text h5,.mb_work_text h6{font-size:14px;line-height:normal}.mb_work_text a{color:#1270e9}.mb_work_text p{margin-top:4px}</style></head><table border=\"0\" width=\"100%\" cellspacing=\"0\" cellpadding=\"0\" style=\"border-collapse:collapse;\"><tr><td width=\"100%\" align=\"center\" style=\"\"><table border=\"0\" cellspacing=\"0\" cellpadding=\"0\" align=\"center\" style=\"border-collapse:collapse;\"><tr><td width=\"960\" align=\"center\" style=\"\"><body style=\"max-width:480px;margin:0 auto;\" dir=\"ltr\" bgcolor=\"#ffffff\"></body></td></tr></table></td></tr></table></html>\r\n\r\n\r\n\r\n--xYzZY\r\nContent-Disposition: form-data; name=\"attachments\"\r\n\r\n0\r\n--xYzZY\r\nContent-Disposition: form-data; name=\"sender_ip\"\r\n\r\n66.220.144.145\r\n--xYzZY\r\nContent-Disposition: form-data; name=\"subject\"\r\n\r\n新しいデバイスからログインしましたか？\r\n--xYzZY\r\nContent-Disposition: form-data; name=\"envelope\"\r\n\r\n{\"to\":[\"fb@example.com\"],\"from\":\"security@facebookmail.com\"}\r\n--xYzZY\r\nContent-Disposition: form-data; name=\"headers\"\r\n\r\nBIMI-Selector: v=BIMI1; s=fb2023q1v3;\nContent-Type: multipart/alternative; boundary=\"b1_66411ef5b77bc327fd6f2476d6e8c1ff\"\nDKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=facebookmail.com;\ts=s1024-2013-q3; t=1745282237;\tbh=pkV+El7mfMTMiS7RrSIq4VnaucYWApsIesHRwl3akYQ=;\th=Date:To:Subject:From:MIME-Version:Content-Type;\tb=QxELIPB651bEz9m3RDEFeMWLdHao/0n2JGnW2e+66iWjA0qxJpxFMJ5ZfYOIV2O/V\t zeMxcN8aBbJMMdekQorwD6bXgSkzmHuodY7GHm3pD0wwRA1KjYFU7mL48hDRXxzyJ4\t NzCCwRLvmmgZTKGfrIqI4l5mHtiyc/m31MesjwDE=\nDate: Mon, 21 Apr 2025 17:37:17 -0700\nErrors-To: security@facebookmail.com\nFeedback-ID: login_alerts_new_device:Facebook\nFrom: \"Facebook\" <security@facebookmail.com>\nList-Unsubscribe: <https://www.facebook.com/>\nList-Unsubscribe-Post: List-Unsubscribe=One-Click\nMIME-Version: 1.0\nMessage-ID: <b4267cc2-8b48-4e18-8c16-0e15c1f22578@facebookmail.com>\nReceived: from 66-220-144-145.mail-mail.facebook.com (mxd [66.220.144.145]) by mx.sendgrid.net with ESMTP id eNTJhsHlSx6eBt_yXD2aMQ for <fb@example.com>; Tue, 22 Apr 2025 00:37:17.944 +0000 (UTC)\nReply-to: noreply <noreply@facebookmail.com>\nRequire-Recipient-Valid-Since: fb@example.com; Saturday, 23 Jan 2021 13:06:25 +0000\nReturn-Path: security@facebookmail.com\nSubject: 新しいデバイスからログインしましたか？\nTo: Takeshi George Matsuda <fb@example.com>\nX-Auto-Response-Suppress: All\nX-FACEBOOK-PRIORITY: 0\nX-FB-Internal-MID: U1U63352e62d5e4bG5af3655677f6G633532fc3611dG2bf\nX-FB-Internal-NotifID: 1745282236899613\nX-FB-Internal-Notiftype: login_alerts_new_device\nX-FB-Internal-RecipID: 100001423718390\nX-Facebook: from 2803:6081:78f0:85c6:dcad:b9e9:300:0 ([MTI3LjAuMC4x]) \tby thrift.facebook.com with HTTPS (ZuckMail);\nX-Facebook-Notify: login_alerts_new_device; mailid=U1U63352e62d5e4bG5af3655677f6G633532fc3611dG2bf\nX-Mailer: ZuckMail [version 1.00]\nX-Priority: 3\n\r\n--xYzZY\r\nContent-Disposition: form-data; name=\"charsets\"\r\n\r\n{\"to\":\"UTF-8\",\"from\":\"UTF-8\",\"subject\":\"UTF-8\",\"text\":\"utf-8\",\"html\":\"utf-8\"}\r\n--xYzZY\r\nContent-Disposition: form-data; name=\"dkim\"\r\n\r\n{@facebookmail.com : pass}\r\n--xYzZY\r\nContent-Disposition: form-data; name=\"SPF\"\r\n\r\npass\r\n--xYzZY--\r\n",
+    "isBase64Encoded": false
+}
