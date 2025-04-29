@@ -4,7 +4,7 @@ import boto3
 import requests
 import io
 import re
-from cgi import FieldStorage
+from multipart import MultipartParser
 from jinja2 import Environment, FileSystemLoader
 from datetime import datetime, timedelta
 
@@ -58,24 +58,11 @@ def parse_multipart_form(headers, body):
     Content-Type: multipart/form-data のコンテンツをパースする
     '''
     fp = io.BytesIO(body.encode('utf-8'))
-    environ = {'REQUEST_METHOD': 'POST'}
-    headers = {
-        'content-type': headers['Content-Type'],
-        'content-length': len(body.encode('utf-8'))
-    }
-
-    fs = FieldStorage(fp=fp, environ=environ, headers=headers)
+    boundary = headers["Content-Type"].split("boundary=")[1]
 
     email = {}
-    for f in fs.list:
-        # print(
-        #     "---\nname: ", f.name,
-        #     "\nfilename: ", f.filename,
-        #     "\ntype: ", f.type,
-        #     "\nvalue: ", f.value,
-        #     "\n"
-        # )
-        email[f.name] = f.value
+    for part in MultipartParser(fp, boundary):
+        email[part.name] = part.value
 
     return email
 
