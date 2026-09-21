@@ -22,6 +22,7 @@ jobs:
       - name: Test with pytest
         run: pytest --cov=. --cov-report xml
       - name: SonarCloud Scan
+        if: github.actor != 'dependabot[bot]'
         uses: SonarSource/sonarcloud-github-action@master
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}  # Needed to get PR information, if any
